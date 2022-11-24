@@ -23,16 +23,42 @@ public class Fuse
         return new FuseIndex();
     }
 
-    public List<FuseResult> Search(string query)
+    public List<Result> Search(string query)
     {
-        var searcher = new BitTapSearch(query);
+        var searcher = new BitTapSearch(query, _fuseOptions);
+        var results = new List<Result>();
         
         foreach (var text in _docs)
         {
-            searcher.SearchIn(text);
+            var result = searcher.SearchIn(text);
+
+            if (result.IsMatch)
+            {
+                results.Add(result);
+            }
         }
-        
-        throw new NotImplementedException();
+
+        return results;
     }
 
+    private void CreateIndex()
+    {
+        var myIndex = new FuseIndex();
+    }
+
+    private void ComputeScore(List<Result> results)
+    {
+        foreach (var result in results)
+        {
+            var totalScore = 1;
+            
+            result.
+        }
+    }
+}
+
+public class FuseResult
+{
+    public string Item { get; set; }
+    public TYPE Type { get; set; }
 }
