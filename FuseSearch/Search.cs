@@ -1,4 +1,4 @@
-﻿namespace Fuse.cs;
+﻿namespace FuseSearch;
 
 public static class Search
 {
@@ -14,7 +14,7 @@ public static class Search
         var bestLocation = expectedLocation;
 
         var computeMatches = fuseOptions.MinMatchCharLength > 1 || fuseOptions.IncludeMatches;
-        var matchMask = computeMatches ? new int[textLen] : Array.Empty<int>();
+        var matchMask = new Dictionary<int, int>();
 
         var index = 0;
 
@@ -95,14 +95,23 @@ public static class Search
             for (var j = finish; j >= start; j--)
             {
                 var currentLocation = j - 1;
-                var charMatch = patternAlphabet[text[currentLocation]];
 
+                int? charMatch = null;
+                if (text.ToCharArray().Length > currentLocation)
+                {
+                    var x = text[currentLocation];
+                    if (patternAlphabet.ContainsKey(x))
+                    {
+                        charMatch = patternAlphabet[x];
+                    }
+                }
+                
                 if (computeMatches)
                 {
-                    matchMask[currentLocation] = charMatch != 0 ? 1 : 0;
+                    matchMask[currentLocation] = charMatch is not null && charMatch != 0 ? 1 : 0;
                 }
 
-                bitArr[j] = ((bitArr[j + 1] << 1) | 1) & charMatch;
+                bitArr[j] = charMatch is null ? 0 : ((bitArr[j + 1] << 1) | 1) & charMatch.Value;
 
                 if (i != 0)
                 {
@@ -173,19 +182,19 @@ public static class Search
         return result;
     }
 
-    private static List<(int, int)> ConvertMaskToIndices(int[] matchMask, int minMatchCharLength)
+    private static List<(int, int)> ConvertMaskToIndices(Dictionary<int, int> matchMask, int minMatchCharLength)
     {
         var indices = new List<(int, int)>();
         var start = -1;
         var end = -1;
         var i = 0;
 
-        for (var len = matchMask.Length; i < len; i++)
+        for (var len = matchMask.Count; i < len; i++)
         {
-            if (matchMask.Contains(i) && start != -1)
+            if (matchMask.ContainsKey(i) && start != -1)
             {
                 start = 1;
-            }else if (!matchMask.Contains(i) && start != -1)
+            }else if (!matchMask.ContainsKey(i) && start != -1)
             {
                 end = i - 1;
                 if (end - start + 1 >= minMatchCharLength)
@@ -196,7 +205,7 @@ public static class Search
             }
         }
 
-        if (matchMask.Contains(i - 1) && i - start >= minMatchCharLength)
+        if (matchMask.ContainsKey(i - 1) && i - start >= minMatchCharLength)
         {
             indices.Add((start, i - 1));
         }
