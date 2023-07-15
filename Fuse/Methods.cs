@@ -78,7 +78,7 @@ public static class Methods
             }
         }
 
-        var lastBitArr = Span<int>.Empty;;
+        Span<int> lastBitArr = stackalloc int[0];
         double finalScore = 1;
         var binMax = patternLen + textLen;
 

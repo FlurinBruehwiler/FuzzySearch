@@ -1,4 +1,5 @@
-﻿using ConsoleApp2;
+﻿using System.Buffers;
+using ConsoleApp2;
 using FlurinBruehwiler.Helpers;
 
 
@@ -27,4 +28,3 @@ foreach (var record in records)
 }
 
 results.Dump();
-
