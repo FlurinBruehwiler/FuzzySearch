@@ -1,4 +1,5 @@
-﻿using FlurinBruehwiler.Helpers;
+﻿using System.Diagnostics;
+using FlurinBruehwiler.Helpers;
 using Fuse;
 
 var records = new List<string>
@@ -10,7 +11,7 @@ var records = new List<string>
 
 var pattern = "fi";
 
-var results = new List<Result>();
+// var results = new List<Result>();
 
 var index = Methods.CreateIndex(pattern);
 var options = new FuseOptions();
@@ -27,7 +28,14 @@ var options = new FuseOptions();
 //
 // results.Dump();
 
-foreach (var x in 10_000)
+var start = Stopwatch.GetTimestamp();
+
+foreach (var _ in 100_000)
 {
-    Methods.Compare(record, index, options);
+    foreach (var record in records)
+    {
+        Methods.Compare(record, index, options);
+    }
 }
+
+Stopwatch.GetElapsedTime(start).Milliseconds.Print();
