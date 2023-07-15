@@ -49,7 +49,7 @@ public static class Methods
         // OR if `includeMatches` is true.
         var computeMatches = options.MinMatchCharLength > 1 || options.IncludeMatches;
         // A mask of the matches, used for building the indices
-        var matchMask = computeMatches ? new int[textLen] : Array.Empty<int>();
+        var matchMask = computeMatches ? stackalloc int[textLen] : Span<int>.Empty;
 
         int index;
 
@@ -78,7 +78,7 @@ public static class Methods
             }
         }
 
-        var lastBitArr = Array.Empty<int>();
+        var lastBitArr = Span<int>.Empty;;
         double finalScore = 1;
         var binMax = patternLen + textLen;
 
@@ -124,7 +124,7 @@ public static class Methods
                 : Math.Min(expectedLocation + binMid, textLen) + patternLen;
 
             // Initialize the bit array
-            var bitArr = new int[finish + 2];
+            Span<int> bitArr = stackalloc int[finish + 2];
 
             bitArr[finish + 1] = (1 << i) - 1;
 
@@ -208,12 +208,12 @@ public static class Methods
 
     private static Dictionary<char, int> CreatePatternAlphabet(string pattern)
     {
-        var mask = new Dictionary<char, int>();
+        var mask = new Dictionary<char, int>(pattern.Length);
 
-        for (int i = 0, len = pattern.Length; i < len; i += 1)
+        for (var i = 0; i < pattern.Length; i += 1)
         {
             var c = pattern[i];
-            mask[c] = (mask.TryGetValue(c, out var value) ? value : 0) | (1 << (len - i - 1));
+            mask[c] = (mask.TryGetValue(c, out var value) ? value : 0) | (1 << (pattern.Length - i - 1));
         }
 
         return mask;
