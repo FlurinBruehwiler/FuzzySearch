@@ -1,15 +1,15 @@
-namespace Fuse;
+namespace FuseSearch;
 
-public static class Methods
+internal static class Searcher
 {
-    public static SearchResult Compare(string text, Index index, FuseOptions options)
+    public static InternalSearchResult Compare(string text, Index index, FuseOptions options)
     {
         if(!options.IsCaseSensitve)
             text = text.ToLowerInvariant();
 
         if (index.Pattern == text)
         {
-            return new SearchResult(true, 0);
+            return new InternalSearchResult(true, 0);
         }
 
         double totalScore = 0;
@@ -25,10 +25,10 @@ public static class Methods
             totalScore += sr.Score;
         }
 
-        return new SearchResult(hasMatches, hasMatches ? totalScore / index.Chunks.Count : 1);
+        return new InternalSearchResult(hasMatches, hasMatches ? totalScore / index.Chunks.Count : 1);
     }
 
-    private static SearchResult Search(string text, string pattern, IReadOnlyDictionary<char, int> patternAlphabet, FuseOptions options)
+    private static InternalSearchResult Search(string text, string pattern, IReadOnlyDictionary<char, int> patternAlphabet, FuseOptions options)
     {
         if (pattern.Length > 32)
         {
@@ -202,7 +202,7 @@ public static class Methods
             lastBitArr = bitArr;
         }
         
-        return new SearchResult(bestLocation >= 0, Math.Max(0.001, finalScore));
+        return new InternalSearchResult(bestLocation >= 0, Math.Max(0.001, finalScore));
     }
 
 

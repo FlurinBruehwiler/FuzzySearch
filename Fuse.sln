@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fuse", "Fuse\Fuse.csproj", "{E781E5EE-B74E-4E69-9B16-528C70BA38C4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FuseSearch", "FuseSearch\FuseSearch.csproj", "{E781E5EE-B74E-4E69-9B16-528C70BA38C4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FuseSearch.Tests", "FuseSearch.Tests\FuseSearch.Tests.csproj", "{57E660FB-0D0F-45EE-9775-B08AB64142EF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -12,5 +14,9 @@ Global
 		{E781E5EE-B74E-4E69-9B16-528C70BA38C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E781E5EE-B74E-4E69-9B16-528C70BA38C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E781E5EE-B74E-4E69-9B16-528C70BA38C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57E660FB-0D0F-45EE-9775-B08AB64142EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57E660FB-0D0F-45EE-9775-B08AB64142EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57E660FB-0D0F-45EE-9775-B08AB64142EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57E660FB-0D0F-45EE-9775-B08AB64142EF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
