@@ -5,7 +5,7 @@
         <TargetFramework>net7.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
-        <RootNamespace>ConsoleApp2</RootNamespace>
+        <RootNamespace>Fuse</RootNamespace>
     </PropertyGroup>
     
     <ItemGroup>

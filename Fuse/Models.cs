@@ -1,4 +1,4 @@
-namespace ConsoleApp2;
+namespace Fuse;
 
 public struct ScoreInfo
 {
