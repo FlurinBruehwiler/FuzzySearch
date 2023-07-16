@@ -2,7 +2,7 @@ namespace FuzzySearch;
 
 internal static class Searcher
 {
-    public static InternalSearchResult Compare(string text, Index index, FuseOptions options)
+    public static InternalSearchResult Compare<T>(string text, Index index, FuseOptions<T> options)
     {
         if(!options.IsCaseSensitve)
             text = text.ToLowerInvariant();
@@ -17,7 +17,7 @@ internal static class Searcher
         
         foreach (var chunk in index.Chunks)
         {
-            var sr = Search(text, chunk.Pattern, chunk.Alphabet, options);
+            var sr = Search<T>(text, chunk.Pattern, chunk.Alphabet, options);
 
             if (sr.IsMatch)
                 hasMatches = true;
@@ -28,7 +28,7 @@ internal static class Searcher
         return new InternalSearchResult(hasMatches, hasMatches ? totalScore / index.Chunks.Count : 1);
     }
 
-    private static InternalSearchResult Search(string text, string pattern, IReadOnlyDictionary<char, int> patternAlphabet, FuseOptions options)
+    private static InternalSearchResult Search<T>(string text, string pattern, IReadOnlyDictionary<char, int> patternAlphabet, FuseOptions<T> options)
     {
         if (pattern.Length > 32)
         {

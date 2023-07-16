@@ -6,7 +6,7 @@
         <Nullable>enable</Nullable>
         <RootNamespace>FuzzySearch</RootNamespace>
         <PackageId>FlurinBruehwiler.FuzzySearch</PackageId>
-        <Version>0.1.0-beta1</Version>
+        <Version>0.1.0-beta2</Version>
         <Authors>Flurin Bruehwiler</Authors>
         <PackageLicenseUrl>MIT</PackageLicenseUrl>
         <RepositoryUrl>https://github.com/FlurinBruehwiler/Fuse.cs</RepositoryUrl>
