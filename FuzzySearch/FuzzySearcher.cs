@@ -3,12 +3,12 @@ namespace FuzzySearch;
 public class FuzzySearcher<T>
 {
     private readonly List<T> _records;
-    private readonly FuseOptions<T> _options;
+    private readonly SearchOptions<T> _options;
 
-    public FuzzySearcher(IEnumerable<T> records, FuseOptions<T>? fuseOptions = null)
+    public FuzzySearcher(IEnumerable<T> records, SearchOptions<T>? options = null)
     {
         _records = records.ToList();
-        _options = fuseOptions ?? new FuseOptions<T>();
+        _options = options ?? new SearchOptions<T>();
     }
 
     public List<SearchResult<T>> Search(string text)
@@ -46,7 +46,7 @@ public class FuzzySearcher<T>
     }
 }
 
-public class FuseOptions<T>
+public class SearchOptions<T>
 {
     public bool IsCaseSensitve { get; init; } = false;
     public int Distance { get; init; } = 100;
