@@ -1,5 +1,3 @@
-using FlurinBruehwiler.FuzzySearch;
-
 namespace FuzzySearch.Tests;
 
 public class FuseTests

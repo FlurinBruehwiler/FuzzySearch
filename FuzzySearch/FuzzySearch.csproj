@@ -4,7 +4,7 @@
         <TargetFramework>net6.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
-        <RootNamespace>FlurinBruehwiler.FuzzySearch</RootNamespace>
+        <RootNamespace>FuzzySearch</RootNamespace>
         <PackageId>FlurinBruehwiler.FuzzySearch</PackageId>
         <Version>0.1.0-beta1</Version>
         <Authors>Flurin Bruehwiler</Authors>

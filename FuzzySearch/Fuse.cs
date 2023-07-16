@@ -1,4 +1,4 @@
-namespace FlurinBruehwiler.FuzzySearch;
+namespace FuzzySearch;
 
 public class Fuse
 {

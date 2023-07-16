@@ -1,4 +1,4 @@
-namespace FlurinBruehwiler.FuzzySearch;
+namespace FuzzySearch;
 
 internal record struct ScoreInfo(int Errors, int CurrentLocation, int ExpectedLocation, int Distance,
     bool IgnoreLocation);
