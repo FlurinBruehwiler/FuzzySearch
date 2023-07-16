@@ -1,10 +1,18 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net7.0</TargetFramework>
+        <TargetFramework>net6.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <RootNamespace>FuseSearch</RootNamespace>
+        <PackageId>Fuse.cs</PackageId>
+        <Version>0.1.0-beta1</Version>
+        <Authors>Flurin Bruehwiler</Authors>
+        <PackageLicenseUrl>MIT</PackageLicenseUrl>
+        <RepositoryUrl>https://github.com/FlurinBruehwiler/Fuse.cs</RepositoryUrl>
+        <Description>
+            A C# port of the fuse.js fuzzy search library.
+        </Description>
     </PropertyGroup>
     
     <ItemGroup>

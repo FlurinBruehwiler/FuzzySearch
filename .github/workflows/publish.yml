@@ -1,0 +1,32 @@
+name: Build And Push Package
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./FuseSearch
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v2
+        with:
+          dotnet-version: 6.0.x
+      - name: Restore dependencies
+        run: dotnet restore
+      - name: Build release
+        run: dotnet build /p:PublicRelease=true
+      - name: Test
+        run: dotnet test --no-build --verbosity normal
+      - name: Pack
+        run: dotnet pack --configuration Release
+      - name: Push nuget.org
+        run: dotnet nuget push "bin/Release/*.nupkg" --api-key ${{secrets.NUGET_ORG_API_KEY}} --source https://api.nuget.org/v3/index.json --skip-duplicate
