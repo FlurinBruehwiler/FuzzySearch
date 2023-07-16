@@ -1,4 +1,4 @@
-namespace FuseSearch;
+namespace FlurinBruehwiler.FuzzySearch;
 
 internal static class Searcher
 {

@@ -1,4 +1,6 @@
-namespace FuseSearch.Tests;
+using FlurinBruehwiler.FuzzySearch;
+
+namespace FuzzySearch.Tests;
 
 public class FuseTests
 {

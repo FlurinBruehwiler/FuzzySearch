@@ -1,8 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FuseSearch", "FuseSearch\FuseSearch.csproj", "{E781E5EE-B74E-4E69-9B16-528C70BA38C4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FuzzySearch", "FuzzySearch\FuzzySearch.csproj", "{E781E5EE-B74E-4E69-9B16-528C70BA38C4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FuseSearch.Tests", "FuseSearch.Tests\FuseSearch.Tests.csproj", "{57E660FB-0D0F-45EE-9775-B08AB64142EF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FuzzySearch.Tests", "FuzzySearch.Tests\FuzzySearch.Tests.csproj", "{57E660FB-0D0F-45EE-9775-B08AB64142EF}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionItems", "{14FD4E2E-DCA5-4EC1-8564-F9C80F0750D5}"
 	ProjectSection(SolutionItems) = preProject

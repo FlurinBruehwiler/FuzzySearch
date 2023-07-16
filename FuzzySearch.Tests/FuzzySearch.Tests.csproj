@@ -7,7 +7,7 @@
 
         <IsPackable>false</IsPackable>
         <IsTestProject>true</IsTestProject>
-        <RootNamespace>FuseSearch.Tests</RootNamespace>
+        <RootNamespace>FuzzySearch.Tests</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
@@ -24,7 +24,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\FuseSearch\FuseSearch.csproj" />
+      <ProjectReference Include="..\FuzzySearch\FuzzySearch.csproj" />
     </ItemGroup>
 
 </Project>
