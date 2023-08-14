@@ -1,4 +1,4 @@
-namespace FuzzySearch;
+namespace FuzzySearch.Tests.Performance.V3;
 
 internal static class Searcher
 {
@@ -208,7 +208,7 @@ internal static class Searcher
 
     private static Dictionary<char, int> CreatePatternAlphabet(string pattern)
     {
-        var mask = new Dictionary<char, int>(pattern.Length);
+        var mask = DictionaryPool.GetDictionary();
 
         for (var i = 0; i < pattern.Length; i += 1)
         {

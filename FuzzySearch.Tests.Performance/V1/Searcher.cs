@@ -1,4 +1,4 @@
-namespace FuzzySearch;
+namespace FuzzySearch.Tests.Performance.V1;
 
 internal static class Searcher
 {
@@ -49,7 +49,7 @@ internal static class Searcher
         // OR if `includeMatches` is true.
         var computeMatches = options.MinMatchCharLength > 1 || options.IncludeMatches;
         // A mask of the matches, used for building the indices
-        var matchMask = computeMatches ? stackalloc int[textLen] : Span<int>.Empty;
+        var matchMask = computeMatches ? new int[textLen] : Array.Empty<int>();
 
         int index;
 
@@ -78,7 +78,7 @@ internal static class Searcher
             }
         }
 
-        Span<int> lastBitArr = stackalloc int[0];
+        var lastBitArr = Array.Empty<int>();
         double finalScore = 1;
         var binMax = patternLen + textLen;
 
@@ -124,7 +124,7 @@ internal static class Searcher
                 : Math.Min(expectedLocation + binMid, textLen) + patternLen;
 
             // Initialize the bit array
-            Span<int> bitArr = stackalloc int[finish + 2];
+            var bitArr = new int[finish + 2];
 
             bitArr[finish + 1] = (1 << i) - 1;
 

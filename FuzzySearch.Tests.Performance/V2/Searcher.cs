@@ -1,4 +1,4 @@
-namespace FuzzySearch;
+namespace FuzzySearch.Tests.Performance.V2;
 
 internal static class Searcher
 {
