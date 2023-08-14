@@ -19,6 +19,8 @@ public class FuzzySearcher<T>
 
         foreach (var record in _records)
         {
+            Thread.Sleep(1000);
+
             string value;
             
             if (record is string str)

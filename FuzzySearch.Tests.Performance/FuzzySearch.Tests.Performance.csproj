@@ -10,6 +10,9 @@
     <ItemGroup>
       <PackageReference Include="BenchmarkDotNet" Version="0.13.6" />
       <PackageReference Include="Bogus" Version="34.0.2" />
+        <PackageReference Include="ClrHeapAllocationAnalyzer" Version="3.0.0" />
+        <PackageReference Include="FlurinBruehwiler.Helpers" Version="0.1.6" />
+        <PackageReference Include="Microsoft.CodeAnalysis.Common" Version="4.10" />
     </ItemGroup>
 
 </Project>

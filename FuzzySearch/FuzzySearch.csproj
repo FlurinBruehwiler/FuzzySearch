@@ -16,7 +16,8 @@
     </PropertyGroup>
     
     <ItemGroup>
-        <PackageReference Include="FlurinBruehwiler.Helpers" Version="0.1.5" />
+        <PackageReference Include="ClrHeapAllocationAnalyzer" Version="3.0.0" />
+        <PackageReference Include="FlurinBruehwiler.Helpers" Version="0.1.6" />
     </ItemGroup>
 
 </Project>

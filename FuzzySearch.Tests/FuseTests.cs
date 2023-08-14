@@ -1,4 +1,5 @@
 using FluentAssertions;
+using FuzzySearch.Tests.Performance.V3;
 
 namespace FuzzySearch.Tests;
 
